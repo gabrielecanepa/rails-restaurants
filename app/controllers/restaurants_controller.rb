@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :find_restaurant, only: [:show, :edit, :update, :destroy, :chef]
 
   def index
     @restaurants = Restaurant.all
@@ -14,6 +14,7 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
+    @restaurant = Restaurant.new(name: params[:restaurant][:name])
     if @restaurant.save
       redirect_to root_path
     else
@@ -39,6 +40,10 @@ class RestaurantsController < ApplicationController
 
   def top
     @restaurants = Restaurant.where(rating: 5)
+  end
+
+  def chef
+    @chef = @restaurant.chef
   end
 
   private

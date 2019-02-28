@@ -8,9 +8,20 @@ Rails.application.routes.draw do
   # patch 'restaurants/:id', to: 'restaurants#update'
   # delete 'restaurants/:id', to: 'restaurants#destroy'
   resources :restaurants do
-    resources :reviews
-    collection do                       # collection => no restaurant id in URL
-      get 'top'                         # RestaurantsController#top
+    resources :review
+
+    # Referred to all the restaurants
+    collection do
+      get 'top'
     end
+
+    # Referred to a specific restaurant
+    member do
+      get 'chef'
+    end
+  end
+
+  namespace :admin do
+    resources :restaurants, only: :index
   end
 end

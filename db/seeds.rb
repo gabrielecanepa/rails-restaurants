@@ -5,7 +5,7 @@ Review.destroy_all
 Restaurant.destroy_all
 
 10.times do
-  restaurant = Restaurant.create(name: Faker::Restaurant.name, address: Faker::Address.city, rating: rand(1..5))
+  restaurant = Restaurant.create(name: Faker::Restaurant.name, address: Faker::Address.city, rating: rand(1..5), chef: Faker::Superhero.name)
   puts "#{restaurant.name} created"
 
   3.times do |n|
