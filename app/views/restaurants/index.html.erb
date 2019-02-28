@@ -4,6 +4,7 @@
   </h2>
   <p><%= restaurant.address %></p>
   <p>Rating: <%= restaurant.rating %></p>
+  <p>Owner: <%= restaurant.user.email %></p>
 <% end %>
 
 <%= link_to 'Create a new restaurant', new_restaurant_path %>
