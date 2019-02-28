@@ -1,5 +1,8 @@
+<%= cl_image_tag @restaurant.photo %>
 <h1><%= @restaurant.name %></h1>
 <p><%= @restaurant.address %></p>
+<p>Rating: <%= @restaurant.rating %></p>
+<p>Chef: <%= @restaurant.chef %></p>
 
 <%= link_to 'Edit this restaurant', edit_restaurant_path(@restaurant) %>
 <%= link_to 'Destroy', restaurant_path(@restaurant), method: :delete %>
