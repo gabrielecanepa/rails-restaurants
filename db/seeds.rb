@@ -11,6 +11,7 @@ end
 10.times do
   restaurant = Restaurant.new(name: Faker::Restaurant.name, address: Faker::Address.city, rating: rand(1..5), chef: Faker::Superhero.name)
   restaurant.user = User.all.sample # assign restaurant to a random user
+  restaurant.remote_photo_url = 'https://media-cdn.tripadvisor.com/media/photo-s/11/45/43/2c/restaurant-by-night.jpg'
   restaurant.save
   puts "#{restaurant.name} created"
 
