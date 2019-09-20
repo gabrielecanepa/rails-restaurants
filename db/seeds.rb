@@ -11,6 +11,7 @@ end
 10.times do
   restaurant = Restaurant.new(name: Faker::Restaurant.name, address: Faker::Address.city, rating: rand(1..5), chef: Faker::Superhero.name)
   restaurant.user = User.all.sample # assign restaurant to a random user
+  restaurant.save
   puts "#{restaurant.name} created"
 
   3.times do |n| # create 3 reviews for each restaurant
